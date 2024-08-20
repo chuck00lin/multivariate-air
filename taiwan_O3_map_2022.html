@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_45fc6631b0da5dbca3be242a405e0970 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 50px; left: 50px; width: 220px; height: 160px; 
+background-color: white; border:2px solid grey; z-index:9999; font-size:14px;">
+<p><strong>O3 Levels (μg/m³)</strong></p>
+<p><span style="color:green;">●</span> 0-12 (Good)</p>
+<p><span style="color:yellow;">●</span> 12.1-35.4 (Moderate)</p>
+<p><span style="color:orange;">●</span> 35.5-55.4 (Unhealthy for Sensitive Groups)</p>
+<p><span style="color:red;">●</span> 55.5-150.4 (Unhealthy)</p>
+<p><span style="color:purple;">●</span> >150.4 (Very Unhealthy)</p>
+<p>Larger circles indicate higher O3 levels</p>
+</div>
+    
+            <div class="folium-map" id="map_45fc6631b0da5dbca3be242a405e0970" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_45fc6631b0da5dbca3be242a405e0970 = L.map(
+                "map_45fc6631b0da5dbca3be242a405e0970",
+                {
+                    center: [23.5, 121.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_88452819420f63960775df27b9b2c88d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_88452819420f63960775df27b9b2c88d.addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+            var circle_marker_0aad180350a241a6183f3ddc4652aafc = L.circleMarker(
+                [25.0131, 121.459],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.524875246605546, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_67773e15055ea252ab78323fc39b5cda = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_602e8d949026d87959ec944e823fa7bb = $(`<div id="html_602e8d949026d87959ec944e823fa7bb" style="width: 100.0%; height: 100.0%;">板橋<br>O3: 27.05</div>`)[0];
+                popup_67773e15055ea252ab78323fc39b5cda.setContent(html_602e8d949026d87959ec944e823fa7bb);
+            
+        
+
+        circle_marker_0aad180350a241a6183f3ddc4652aafc.bindPopup(popup_67773e15055ea252ab78323fc39b5cda)
+        ;
+
+        
+    
+    
+            var circle_marker_3f0679979ec18dcb5329291464c2140f = L.circleMarker(
+                [23.4628, 120.444],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.833001274180468, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_5bb4f626a95d7787f76c696f5d3af885 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fe23081c63e70e5b32ee4a343339d584 = $(`<div id="html_fe23081c63e70e5b32ee4a343339d584" style="width: 100.0%; height: 100.0%;">嘉義<br>O3: 27.67</div>`)[0];
+                popup_5bb4f626a95d7787f76c696f5d3af885.setContent(html_fe23081c63e70e5b32ee4a343339d584);
+            
+        
+
+        circle_marker_3f0679979ec18dcb5329291464c2140f.bindPopup(popup_5bb4f626a95d7787f76c696f5d3af885)
+        ;
+
+        
+    
+    
+            var circle_marker_0702d013fa5ebbd6b1545c7e8540e2dd = L.circleMarker(
+                [24.9009, 121.0386],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.262743393602225, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_0f3ecf1f6876a79945cacae0a405a82e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d3bcbba0c907f157873efc948f0a4106 = $(`<div id="html_d3bcbba0c907f157873efc948f0a4106" style="width: 100.0%; height: 100.0%;">湖口<br>O3: 32.53</div>`)[0];
+                popup_0f3ecf1f6876a79945cacae0a405a82e.setContent(html_d3bcbba0c907f157873efc948f0a4106);
+            
+        
+
+        circle_marker_0702d013fa5ebbd6b1545c7e8540e2dd.bindPopup(popup_0f3ecf1f6876a79945cacae0a405a82e)
+        ;
+
+        
+    
+    
+            var circle_marker_f38793b7fc366ec94dd74e3845d57619 = L.circleMarker(
+                [25.1287, 121.7419],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.39486955508968, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_b567747b22e6577f60199a281bc9050f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_75175138d58de3f29282129d4862addb = $(`<div id="html_75175138d58de3f29282129d4862addb" style="width: 100.0%; height: 100.0%;">基隆<br>O3: 30.79</div>`)[0];
+                popup_b567747b22e6577f60199a281bc9050f.setContent(html_75175138d58de3f29282129d4862addb);
+            
+        
+
+        circle_marker_f38793b7fc366ec94dd74e3845d57619.bindPopup(popup_b567747b22e6577f60199a281bc9050f)
+        ;
+
+        
+    
+    
+            var circle_marker_f380f799091de5e2b791da0aa93f2414 = L.circleMarker(
+                [22.7336, 120.3281],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.534021335807047, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_845229d4c369ca00d742a5cdf61483a7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9bdf2a01844dd2b8e621aeb95c1690a0 = $(`<div id="html_9bdf2a01844dd2b8e621aeb95c1690a0" style="width: 100.0%; height: 100.0%;">楠梓<br>O3: 27.07</div>`)[0];
+                popup_845229d4c369ca00d742a5cdf61483a7.setContent(html_9bdf2a01844dd2b8e621aeb95c1690a0);
+            
+        
+
+        circle_marker_f380f799091de5e2b791da0aa93f2414.bindPopup(popup_845229d4c369ca00d742a5cdf61483a7)
+        ;
+
+        
+    
+    
+            var circle_marker_308519dd42930193af01e22f494d5a41 = L.circleMarker(
+                [24.9828, 121.446],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.972859132049198, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_238cadade803067576ad5f46fc5f84d0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b97aff395e4b4286b040f8545202fda6 = $(`<div id="html_b97aff395e4b4286b040f8545202fda6" style="width: 100.0%; height: 100.0%;">土城<br>O3: 27.95</div>`)[0];
+                popup_238cadade803067576ad5f46fc5f84d0.setContent(html_b97aff395e4b4286b040f8545202fda6);
+            
+        
+
+        circle_marker_308519dd42930193af01e22f494d5a41.bindPopup(popup_238cadade803067576ad5f46fc5f84d0)
+        ;
+
+        
+    
+    
+            var circle_marker_c9e11cec79ee7860e28cdd00b4a196cb = L.circleMarker(
+                [22.5645, 120.4253],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.03414734612216, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_e615675b9d1b89fba7d6671d3c8f05f7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a36126ade94cdad445add66a471d321a = $(`<div id="html_a36126ade94cdad445add66a471d321a" style="width: 100.0%; height: 100.0%;">大寮<br>O3: 26.07</div>`)[0];
+                popup_e615675b9d1b89fba7d6671d3c8f05f7.setContent(html_a36126ade94cdad445add66a471d321a);
+            
+        
+
+        circle_marker_c9e11cec79ee7860e28cdd00b4a196cb.bindPopup(popup_e615675b9d1b89fba7d6671d3c8f05f7)
+        ;
+
+        
+    
+    
+            var circle_marker_b14cdf16570e940c99dc5965342e7205 = L.circleMarker(
+                [25.1375, 121.3661],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.532876871300914, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_eb99141785c2798c4e1032227c54e61f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ba08d555277ea90862bc1ecad6cdf2f2 = $(`<div id="html_ba08d555277ea90862bc1ecad6cdf2f2" style="width: 100.0%; height: 100.0%;">復興<br>O3: 27.07</div>`)[0];
+                popup_eb99141785c2798c4e1032227c54e61f.setContent(html_ba08d555277ea90862bc1ecad6cdf2f2);
+            
+        
+
+        circle_marker_b14cdf16570e940c99dc5965342e7205.bindPopup(popup_eb99141785c2798c4e1032227c54e61f)
+        ;
+
+        
+    
+    
+            var circle_marker_e822b7244015c02842fbc6f84e413dac = L.circleMarker(
+                [25.2972, 121.5386],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 27.32683832194202, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_80cd0018b9280b2b6c6b86117865caf5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_28dc85c2e50d2bbb527d8b09ba1c2b2d = $(`<div id="html_28dc85c2e50d2bbb527d8b09ba1c2b2d" style="width: 100.0%; height: 100.0%;">富貴角<br>O3: 44.65</div>`)[0];
+                popup_80cd0018b9280b2b6c6b86117865caf5.setContent(html_28dc85c2e50d2bbb527d8b09ba1c2b2d);
+            
+        
+
+        circle_marker_e822b7244015c02842fbc6f84e413dac.bindPopup(popup_80cd0018b9280b2b6c6b86117865caf5)
+        ;
+
+        
+    
+    
+            var circle_marker_3bd56537abbf87ca7b779869866ecd5c = L.circleMarker(
+                [22.5231, 120.5611],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.783884825264135, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_e83fa2ef7393f3c22697c96838fc61f7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_93a4223e4d5fa56a444ed9e38b596551 = $(`<div id="html_93a4223e4d5fa56a444ed9e38b596551" style="width: 100.0%; height: 100.0%;">潮州<br>O3: 29.57</div>`)[0];
+                popup_e83fa2ef7393f3c22697c96838fc61f7.setContent(html_93a4223e4d5fa56a444ed9e38b596551);
+            
+        
+
+        circle_marker_3bd56537abbf87ca7b779869866ecd5c.bindPopup(popup_e83fa2ef7393f3c22697c96838fc61f7)
+        ;
+
+        
+    
+    
+            var circle_marker_d27bfc5d40fec7e3061731a8060e87a0 = L.circleMarker(
+                [25.0379, 121.4326],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.419175627240143, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_6c9b4af864ddb9a16a64bb450eb6385a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6748f3c98ea9654b07be54c65d3dd849 = $(`<div id="html_6748f3c98ea9654b07be54c65d3dd849" style="width: 100.0%; height: 100.0%;">新莊<br>O3: 28.84</div>`)[0];
+                popup_6c9b4af864ddb9a16a64bb450eb6385a.setContent(html_6748f3c98ea9654b07be54c65d3dd849);
+            
+        
+
+        circle_marker_d27bfc5d40fec7e3061731a8060e87a0.bindPopup(popup_6c9b4af864ddb9a16a64bb450eb6385a)
+        ;
+
+        
+    
+    
+            var circle_marker_bbefb1370764decf478a5cf5a6a3cb8a = L.circleMarker(
+                [24.2569, 120.7416],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.738854793886063, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_467e847475a42ab89efe3fd305d591fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1ee12be800ca00c634b86e0d9ed39848 = $(`<div id="html_1ee12be800ca00c634b86e0d9ed39848" style="width: 100.0%; height: 100.0%;">豐原<br>O3: 23.48</div>`)[0];
+                popup_467e847475a42ab89efe3fd305d591fa.setContent(html_1ee12be800ca00c634b86e0d9ed39848);
+            
+        
+
+        circle_marker_bbefb1370764decf478a5cf5a6a3cb8a.bindPopup(popup_467e847475a42ab89efe3fd305d591fa)
+        ;
+
+        
+    
+    
+            var circle_marker_ba62daa6d1a40cc2c6737d29daa3c102 = L.circleMarker(
+                [24.9936, 121.3199],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.641685105391872, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_3df1104a28829ce4e8b3fc855ba84971 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2df87339abb97d7ede3953023e28ceca = $(`<div id="html_2df87339abb97d7ede3953023e28ceca" style="width: 100.0%; height: 100.0%;">桃園<br>O3: 29.28</div>`)[0];
+                popup_3df1104a28829ce4e8b3fc855ba84971.setContent(html_2df87339abb97d7ede3953023e28ceca);
+            
+        
+
+        circle_marker_ba62daa6d1a40cc2c6737d29daa3c102.bindPopup(popup_3df1104a28829ce4e8b3fc855ba84971)
+        ;
+
+        
+    
+    
+            var circle_marker_c24281483784fe90e9aa69fae4834cee = L.circleMarker(
+                [24.162, 120.617],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.38708666898712, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_2b6b08f8587d41584643488fc3e6a029 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ba678ba49c1b464556457c5e4ffcd453 = $(`<div id="html_ba678ba49c1b464556457c5e4ffcd453" style="width: 100.0%; height: 100.0%;">西屯<br>O3: 28.77</div>`)[0];
+                popup_2b6b08f8587d41584643488fc3e6a029.setContent(html_ba678ba49c1b464556457c5e4ffcd453);
+            
+        
+
+        circle_marker_c24281483784fe90e9aa69fae4834cee.bindPopup(popup_2b6b08f8587d41584643488fc3e6a029)
+        ;
+
+        
+    
+    
+            var circle_marker_600d96ff141597d376d47b88b4a96e44 = L.circleMarker(
+                [24.0661, 120.5417],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.060182722331444, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_fd894f8ff78190c1bf5c0ae78e9294af = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3e242bfef62d3d82e8dfcf8f324ed3a1 = $(`<div id="html_3e242bfef62d3d82e8dfcf8f324ed3a1" style="width: 100.0%; height: 100.0%;">彰化<br>O3: 28.12</div>`)[0];
+                popup_fd894f8ff78190c1bf5c0ae78e9294af.setContent(html_3e242bfef62d3d82e8dfcf8f324ed3a1);
+            
+        
+
+        circle_marker_600d96ff141597d376d47b88b4a96e44.bindPopup(popup_fd894f8ff78190c1bf5c0ae78e9294af)
+        ;
+
+        
+    
+    
+            var circle_marker_057a9954fe2ba276e8f55e6cc8dedf04 = L.circleMarker(
+                [23.7563, 120.6773],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.28148711943794, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_08fa459dd70560d2aedca897e99adef8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a915762269f218fc0f38bceff97a8e51 = $(`<div id="html_a915762269f218fc0f38bceff97a8e51" style="width: 100.0%; height: 100.0%;">竹山<br>O3: 26.56</div>`)[0];
+                popup_08fa459dd70560d2aedca897e99adef8.setContent(html_a915762269f218fc0f38bceff97a8e51);
+            
+        
+
+        circle_marker_057a9954fe2ba276e8f55e6cc8dedf04.bindPopup(popup_08fa459dd70560d2aedca897e99adef8)
+        ;
+
+        
+    
+    
+            var circle_marker_7bf020885e15b0dd84dcda2b774cce41 = L.circleMarker(
+                [23.9252, 120.4095],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.262671631370722, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_62b9326b97ce3b3474b3db28fcc5c9df = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_81173ca7ad60dbaedb8bf45392e0aa93 = $(`<div id="html_81173ca7ad60dbaedb8bf45392e0aa93" style="width: 100.0%; height: 100.0%;">二林<br>O3: 30.53</div>`)[0];
+                popup_62b9326b97ce3b3474b3db28fcc5c9df.setContent(html_81173ca7ad60dbaedb8bf45392e0aa93);
+            
+        
+
+        circle_marker_7bf020885e15b0dd84dcda2b774cce41.bindPopup(popup_62b9326b97ce3b3474b3db28fcc5c9df)
+        ;
+
+        
+    
+    
+            var circle_marker_6520ed296b724224d820c4cef43f8564 = L.circleMarker(
+                [24.8056, 120.9722],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.72730769230769, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_daf04f4418190553b20136254cb86d83 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5cab136f2ecebd9ac41dee558e7024d0 = $(`<div id="html_5cab136f2ecebd9ac41dee558e7024d0" style="width: 100.0%; height: 100.0%;">新竹<br>O3: 29.45</div>`)[0];
+                popup_daf04f4418190553b20136254cb86d83.setContent(html_5cab136f2ecebd9ac41dee558e7024d0);
+            
+        
+
+        circle_marker_6520ed296b724224d820c4cef43f8564.bindPopup(popup_daf04f4418190553b20136254cb86d83)
+        ;
+
+        
+    
+    
+            var circle_marker_c2eef1b0f4c56f6787791992c430e929 = L.circleMarker(
+                [24.9539, 121.2232],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.486865047076602, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_68d378776fedf65a9b073f74381ef800 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f88feadbed33917509191185d38f40f8 = $(`<div id="html_f88feadbed33917509191185d38f40f8" style="width: 100.0%; height: 100.0%;">中壢<br>O3: 18.97</div>`)[0];
+                popup_68d378776fedf65a9b073f74381ef800.setContent(html_f88feadbed33917509191185d38f40f8);
+            
+        
+
+        circle_marker_c2eef1b0f4c56f6787791992c430e929.bindPopup(popup_68d378776fedf65a9b073f74381ef800)
+        ;
+
+        
+    
+    
+            var circle_marker_86dc09b51f0ff91524ddc1868394a49c = L.circleMarker(
+                [24.5701, 120.8208],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.628316690442226, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_b876c3b2e908edf89eab9c702edf1f20 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2dc29d64fb502f47cd788f6b1820dd59 = $(`<div id="html_2dc29d64fb502f47cd788f6b1820dd59" style="width: 100.0%; height: 100.0%;">苗栗<br>O3: 29.26</div>`)[0];
+                popup_b876c3b2e908edf89eab9c702edf1f20.setContent(html_2dc29d64fb502f47cd788f6b1820dd59);
+            
+        
+
+        circle_marker_86dc09b51f0ff91524ddc1868394a49c.bindPopup(popup_b876c3b2e908edf89eab9c702edf1f20)
+        ;
+
+        
+    
+    
+            var circle_marker_b97b11338c2dd1c6a34d7890dea318e6 = L.circleMarker(
+                [25.0775, 121.3765],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.84951219512195, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_b5b17ddba36065a008e54557ce875f8d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ffae45f53d880a476bc46d8f7fe9d92c = $(`<div id="html_ffae45f53d880a476bc46d8f7fe9d92c" style="width: 100.0%; height: 100.0%;">林口<br>O3: 31.70</div>`)[0];
+                popup_b5b17ddba36065a008e54557ce875f8d.setContent(html_ffae45f53d880a476bc46d8f7fe9d92c);
+            
+        
+
+        circle_marker_b97b11338c2dd1c6a34d7890dea318e6.bindPopup(popup_b5b17ddba36065a008e54557ce875f8d)
+        ;
+
+        
+    
+    
+            var circle_marker_338fa0e6f5cbf7ad0407beeb7b992505 = L.circleMarker(
+                [22.6731, 120.4881],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.979718130147315, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_c43938e343679fdabb55032d932b4b0d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3a96273c5d081b290dd6f876e9c50f03 = $(`<div id="html_3a96273c5d081b290dd6f876e9c50f03" style="width: 100.0%; height: 100.0%;">屏東<br>O3: 29.96</div>`)[0];
+                popup_c43938e343679fdabb55032d932b4b0d.setContent(html_3a96273c5d081b290dd6f876e9c50f03);
+            
+        
+
+        circle_marker_338fa0e6f5cbf7ad0407beeb7b992505.bindPopup(popup_c43938e343679fdabb55032d932b4b0d)
+        ;
+
+        
+    
+    
+            var circle_marker_5c247e39fb9136c041eb39d5da7b1753 = L.circleMarker(
+                [23.7535, 120.2511],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.951604278074868, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_eaf79c259d9a8b740620e26ac37d62bf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8d6ddf6c74d95b36f0c8ea1dd3e2b807 = $(`<div id="html_8d6ddf6c74d95b36f0c8ea1dd3e2b807" style="width: 100.0%; height: 100.0%;">麥寮<br>O3: 33.90</div>`)[0];
+                popup_eaf79c259d9a8b740620e26ac37d62bf.setContent(html_8d6ddf6c74d95b36f0c8ea1dd3e2b807);
+            
+        
+
+        circle_marker_5c247e39fb9136c041eb39d5da7b1753.bindPopup(popup_eaf79c259d9a8b740620e26ac37d62bf)
+        ;
+
+        
+    
+    
+            var circle_marker_ae55b3f458bf72e0fd904bcddedfbbdc = L.circleMarker(
+                [25.1799, 121.6896],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23.3357476908687, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_3add811b9e361c9b1ded32023a26c77f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_da7bdc9ef39df9e0223fe9d2cff6c6a7 = $(`<div id="html_da7bdc9ef39df9e0223fe9d2cff6c6a7" style="width: 100.0%; height: 100.0%;">萬里<br>O3: 36.67</div>`)[0];
+                popup_3add811b9e361c9b1ded32023a26c77f.setContent(html_da7bdc9ef39df9e0223fe9d2cff6c6a7);
+            
+        
+
+        circle_marker_ae55b3f458bf72e0fd904bcddedfbbdc.bindPopup(popup_3add811b9e361c9b1ded32023a26c77f)
+        ;
+
+        
+    
+    
+            var circle_marker_1abf32d6f29e6bffdf354a7363bb8831 = L.circleMarker(
+                [24.3826, 120.7733],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.494696969696967, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_6436f4237d29e2b980ff651e3a2f3f5d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_074c9d9ace8c4cab46f95612f9370812 = $(`<div id="html_074c9d9ace8c4cab46f95612f9370812" style="width: 100.0%; height: 100.0%;">三義<br>O3: 30.99</div>`)[0];
+                popup_6436f4237d29e2b980ff651e3a2f3f5d.setContent(html_074c9d9ace8c4cab46f95612f9370812);
+            
+        
+
+        circle_marker_1abf32d6f29e6bffdf354a7363bb8831.bindPopup(popup_6436f4237d29e2b980ff651e3a2f3f5d)
+        ;
+
+        
+    
+    
+            var circle_marker_e5e04df19939e41c982fcea73d18cabe = L.circleMarker(
+                [24.432, 118.3166],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23.54154561301569, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_a7f5d53edbdbc713925a9580d9bfc73a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4995d3f4f9ada2c1c817daa5d64d623f = $(`<div id="html_4995d3f4f9ada2c1c817daa5d64d623f" style="width: 100.0%; height: 100.0%;">金門<br>O3: 37.08</div>`)[0];
+                popup_a7f5d53edbdbc713925a9580d9bfc73a.setContent(html_4995d3f4f9ada2c1c817daa5d64d623f);
+            
+        
+
+        circle_marker_e5e04df19939e41c982fcea73d18cabe.bindPopup(popup_a7f5d53edbdbc713925a9580d9bfc73a)
+        ;
+
+        
+    
+    
+            var circle_marker_672a1e36ab860870273ee46055f5b304 = L.circleMarker(
+                [24.1317, 120.4697],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.27313078703704, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_912ed98d8435b747425aaa19113bc7b8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cc772f776ea5fe777f8a6cbf1878b2db = $(`<div id="html_cc772f776ea5fe777f8a6cbf1878b2db" style="width: 100.0%; height: 100.0%;">線西<br>O3: 30.55</div>`)[0];
+                popup_912ed98d8435b747425aaa19113bc7b8.setContent(html_cc772f776ea5fe777f8a6cbf1878b2db);
+            
+        
+
+        circle_marker_672a1e36ab860870273ee46055f5b304.bindPopup(popup_912ed98d8435b747425aaa19113bc7b8)
+        ;
+
+        
+    
+    
+            var circle_marker_ac23caa5cce21693ea970cbd8a375664 = L.circleMarker(
+                [21.958, 120.7444],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.30625301204819, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_3e26d62819f29ffc3cdf4155419e3adf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4ad0591929b2786ab75f89f3337aa5c2 = $(`<div id="html_4ad0591929b2786ab75f89f3337aa5c2" style="width: 100.0%; height: 100.0%;">恆春<br>O3: 34.61</div>`)[0];
+                popup_3e26d62819f29ffc3cdf4155419e3adf.setContent(html_4ad0591929b2786ab75f89f3337aa5c2);
+            
+        
+
+        circle_marker_ac23caa5cce21693ea970cbd8a375664.bindPopup(popup_3e26d62819f29ffc3cdf4155419e3adf)
+        ;
+
+        
+    
+    
+            var circle_marker_170d0302ab18d35cff26dcd505e4983d = L.circleMarker(
+                [24.7506, 121.7464],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.13074245939675, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_b4539513cdccd082e21df5a1924797f2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4d8b6d98c24000f3a83103c9880deffa = $(`<div id="html_4d8b6d98c24000f3a83103c9880deffa" style="width: 100.0%; height: 100.0%;">宜蘭<br>O3: 30.26</div>`)[0];
+                popup_b4539513cdccd082e21df5a1924797f2.setContent(html_4d8b6d98c24000f3a83103c9880deffa);
+            
+        
+
+        circle_marker_170d0302ab18d35cff26dcd505e4983d.bindPopup(popup_b4539513cdccd082e21df5a1924797f2)
+        ;
+
+        
+    
+    
+            var circle_marker_149a0b26b64aeac96009d6876e69ff90 = L.circleMarker(
+                [22.7553, 121.1506],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.709369547516573, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_ca8f35901d2918c8b5f54d67836b64ea = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4e4cc91e202e2e9b4d97f93d8fc52e10 = $(`<div id="html_4e4cc91e202e2e9b4d97f93d8fc52e10" style="width: 100.0%; height: 100.0%;">臺東<br>O3: 27.42</div>`)[0];
+                popup_ca8f35901d2918c8b5f54d67836b64ea.setContent(html_4e4cc91e202e2e9b4d97f93d8fc52e10);
+            
+        
+
+        circle_marker_149a0b26b64aeac96009d6876e69ff90.bindPopup(popup_ca8f35901d2918c8b5f54d67836b64ea)
+        ;
+
+        
+    
+    
+            var circle_marker_cb060835380a5955bac9956a3c6f7690 = L.circleMarker(
+                [22.6273, 120.358],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.08270260829064, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_8d03b82e5d693e75a738f7a4ef47b4b6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_85289ee63924141371b652d98a5a94f1 = $(`<div id="html_85289ee63924141371b652d98a5a94f1" style="width: 100.0%; height: 100.0%;">鳳山<br>O3: 24.17</div>`)[0];
+                popup_8d03b82e5d693e75a738f7a4ef47b4b6.setContent(html_85289ee63924141371b652d98a5a94f1);
+            
+        
+
+        circle_marker_cb060835380a5955bac9956a3c6f7690.bindPopup(popup_8d03b82e5d693e75a738f7a4ef47b4b6)
+        ;
+
+        
+    
+    
+            var circle_marker_c5281709d38fce912db0ee349853793d = L.circleMarker(
+                [23.3056, 120.3169],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.983872088981578, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_4907ca5040885e671da16960081e140b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d19192a10a5cdd7c27c5faf57669705e = $(`<div id="html_d19192a10a5cdd7c27c5faf57669705e" style="width: 100.0%; height: 100.0%;">新營<br>O3: 29.97</div>`)[0];
+                popup_4907ca5040885e671da16960081e140b.setContent(html_d19192a10a5cdd7c27c5faf57669705e);
+            
+        
+
+        circle_marker_c5281709d38fce912db0ee349853793d.bindPopup(popup_4907ca5040885e671da16960081e140b)
+        ;
+
+        
+    
+    
+            var circle_marker_32262ea24e9043004ec729b7a7bb6846 = L.circleMarker(
+                [25.0628, 121.5262],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.161644630016237, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_76fab2fe15bd2bd43c416d90dab1c708 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a650230daa8c62069437b3b349e3ae94 = $(`<div id="html_a650230daa8c62069437b3b349e3ae94" style="width: 100.0%; height: 100.0%;">中山<br>O3: 24.32</div>`)[0];
+                popup_76fab2fe15bd2bd43c416d90dab1c708.setContent(html_a650230daa8c62069437b3b349e3ae94);
+            
+        
+
+        circle_marker_32262ea24e9043004ec729b7a7bb6846.bindPopup(popup_76fab2fe15bd2bd43c416d90dab1c708)
+        ;
+
+        
+    
+    
+            var circle_marker_49b9e71787740a4ac6914bcf32b5032f = L.circleMarker(
+                [22.6047, 120.3073],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.483049472830494, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_c173a6eb9ae1337d9b000fe4e6755176 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_db4e92d4447856ff021897bbff79d35d = $(`<div id="html_db4e92d4447856ff021897bbff79d35d" style="width: 100.0%; height: 100.0%;">前鎮<br>O3: 26.97</div>`)[0];
+                popup_c173a6eb9ae1337d9b000fe4e6755176.setContent(html_db4e92d4447856ff021897bbff79d35d);
+            
+        
+
+        circle_marker_49b9e71787740a4ac6914bcf32b5032f.bindPopup(popup_c173a6eb9ae1337d9b000fe4e6755176)
+        ;
+
+        
+    
+    
+            var circle_marker_ebb4a8740f8873d85baa5a90d0f5abb1 = L.circleMarker(
+                [24.7406, 121.0889],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.664957416607525, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_4129928a4f8c3f7eab83d816a0eb67f8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e2ca2572b66e4302cbe02b07aae33b97 = $(`<div id="html_e2ca2572b66e4302cbe02b07aae33b97" style="width: 100.0%; height: 100.0%;">竹東<br>O3: 29.33</div>`)[0];
+                popup_4129928a4f8c3f7eab83d816a0eb67f8.setContent(html_e2ca2572b66e4302cbe02b07aae33b97);
+            
+        
+
+        circle_marker_ebb4a8740f8873d85baa5a90d0f5abb1.bindPopup(popup_4129928a4f8c3f7eab83d816a0eb67f8)
+        ;
+
+        
+    
+    
+            var circle_marker_0a066fd4dab7f46880d0c830416f51d0 = L.circleMarker(
+                [22.5652, 120.3378],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.573070216228786, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_b7e02069aef01273d1111802e16b53a8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cc041bcac8dc1036029f8126412a8be3 = $(`<div id="html_cc041bcac8dc1036029f8126412a8be3" style="width: 100.0%; height: 100.0%;">小港<br>O3: 25.15</div>`)[0];
+                popup_b7e02069aef01273d1111802e16b53a8.setContent(html_cc041bcac8dc1036029f8126412a8be3);
+            
+        
+
+        circle_marker_0a066fd4dab7f46880d0c830416f51d0.bindPopup(popup_b7e02069aef01273d1111802e16b53a8)
+        ;
+
+        
+    
+    
+            var circle_marker_a4d125b19b077fe93d499b3d6939e476 = L.circleMarker(
+                [22.689, 120.332],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.934462915601024, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_191a52fe2dd23a2c3135c44d3e23b725 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2995655052757767a9b24d9a25ebd997 = $(`<div id="html_2995655052757767a9b24d9a25ebd997" style="width: 100.0%; height: 100.0%;">仁武<br>O3: 25.87</div>`)[0];
+                popup_191a52fe2dd23a2c3135c44d3e23b725.setContent(html_2995655052757767a9b24d9a25ebd997);
+            
+        
+
+        circle_marker_a4d125b19b077fe93d499b3d6939e476.bindPopup(popup_191a52fe2dd23a2c3135c44d3e23b725)
+        ;
+
+        
+    
+    
+            var circle_marker_1287b037cccbe77d8b235eae4a052b77 = L.circleMarker(
+                [25.0355, 121.0824],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.351613842927055, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_5334444e0707530f057c6fcef9a140a2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_27659751d78706b3fd3101fafff01637 = $(`<div id="html_27659751d78706b3fd3101fafff01637" style="width: 100.0%; height: 100.0%;">觀音<br>O3: 34.70</div>`)[0];
+                popup_5334444e0707530f057c6fcef9a140a2.setContent(html_27659751d78706b3fd3101fafff01637);
+            
+        
+
+        circle_marker_1287b037cccbe77d8b235eae4a052b77.bindPopup(popup_5334444e0707530f057c6fcef9a140a2)
+        ;
+
+        
+    
+    
+            var circle_marker_f55f0b772cac16f67992b1f92b02ef5a = L.circleMarker(
+                [23.9712, 121.6044],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.458151669758813, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_5d0f4eee2ef646d7597485b56f3443ff = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d498fce4f832f80eb4bb3de7950040aa = $(`<div id="html_d498fce4f832f80eb4bb3de7950040aa" style="width: 100.0%; height: 100.0%;">花蓮<br>O3: 26.92</div>`)[0];
+                popup_5d0f4eee2ef646d7597485b56f3443ff.setContent(html_d498fce4f832f80eb4bb3de7950040aa);
+            
+        
+
+        circle_marker_f55f0b772cac16f67992b1f92b02ef5a.bindPopup(popup_5d0f4eee2ef646d7597485b56f3443ff)
+        ;
+
+        
+    
+    
+            var circle_marker_5662c347437ebd6c5f298efbd7fbaa6e = L.circleMarker(
+                [23.9137, 120.6853],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.703572257016933, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_c996f3d0d87893f0586077953fa680ec = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2d1cd539424e8f96edc4b44a769c4a10 = $(`<div id="html_2d1cd539424e8f96edc4b44a769c4a10" style="width: 100.0%; height: 100.0%;">南投<br>O3: 25.41</div>`)[0];
+                popup_c996f3d0d87893f0586077953fa680ec.setContent(html_2d1cd539424e8f96edc4b44a769c4a10);
+            
+        
+
+        circle_marker_5662c347437ebd6c5f298efbd7fbaa6e.bindPopup(popup_c996f3d0d87893f0586077953fa680ec)
+        ;
+
+        
+    
+    
+            var circle_marker_1b8268c9f60a3e8b870ae3383e477d97 = L.circleMarker(
+                [25.1056, 121.515],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.22774528527095, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_5312a81d0f85a2bb39e4b3db9e6cbef9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_76779c895ae37925b3458ac601b53fc0 = $(`<div id="html_76779c895ae37925b3458ac601b53fc0" style="width: 100.0%; height: 100.0%;">士林<br>O3: 30.46</div>`)[0];
+                popup_5312a81d0f85a2bb39e4b3db9e6cbef9.setContent(html_76779c895ae37925b3458ac601b53fc0);
+            
+        
+
+        circle_marker_1b8268c9f60a3e8b870ae3383e477d97.bindPopup(popup_5312a81d0f85a2bb39e4b3db9e6cbef9)
+        ;
+
+        
+    
+    
+            var circle_marker_c20aeb9b31151bf9f868cb24a9cf5538 = L.circleMarker(
+                [23.5545, 120.3459],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.149600046371432, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_7fad33bb765e5d02d6e092034ad697f1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d46cecdff7c894636269ed36fbed2f6c = $(`<div id="html_d46cecdff7c894636269ed36fbed2f6c" style="width: 100.0%; height: 100.0%;">新港<br>O3: 28.30</div>`)[0];
+                popup_7fad33bb765e5d02d6e092034ad697f1.setContent(html_d46cecdff7c894636269ed36fbed2f6c);
+            
+        
+
+        circle_marker_c20aeb9b31151bf9f868cb24a9cf5538.bindPopup(popup_7fad33bb765e5d02d6e092034ad697f1)
+        ;
+
+        
+    
+    
+            var circle_marker_9291e66814940656bc3b85f3be5d39d0 = L.circleMarker(
+                [23.048, 120.2047],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.545012165450117, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_7e36218201e51749d13763ca1d85eb58 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_488c83897ffa2843ff5b73567353507a = $(`<div id="html_488c83897ffa2843ff5b73567353507a" style="width: 100.0%; height: 100.0%;">安南<br>O3: 29.09</div>`)[0];
+                popup_7e36218201e51749d13763ca1d85eb58.setContent(html_488c83897ffa2843ff5b73567353507a);
+            
+        
+
+        circle_marker_9291e66814940656bc3b85f3be5d39d0.bindPopup(popup_7e36218201e51749d13763ca1d85eb58)
+        ;
+
+        
+    
+    
+            var circle_marker_b8772cacc58479a2dc23717c85ae0242 = L.circleMarker(
+                [25.0689, 121.4808],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.401432970156325, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_c9d7b018bac7d90b9ce930df99e37e9c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_469175851d96796d8e8a0d826996f28d = $(`<div id="html_469175851d96796d8e8a0d826996f28d" style="width: 100.0%; height: 100.0%;">菜寮<br>O3: 28.80</div>`)[0];
+                popup_c9d7b018bac7d90b9ce930df99e37e9c.setContent(html_469175851d96796d8e8a0d826996f28d);
+            
+        
+
+        circle_marker_b8772cacc58479a2dc23717c85ae0242.bindPopup(popup_c9d7b018bac7d90b9ce930df99e37e9c)
+        ;
+
+        
+    
+    
+            var circle_marker_ace01937bbc02c6769a0de90928cd868 = L.circleMarker(
+                [25.0169, 121.5164],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.808330426694575, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_5b1c927dd23883696898c0a7d6bb7523 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_97cfe3405b57fac22f7e3016b81aa9a2 = $(`<div id="html_97cfe3405b57fac22f7e3016b81aa9a2" style="width: 100.0%; height: 100.0%;">永和<br>O3: 25.62</div>`)[0];
+                popup_5b1c927dd23883696898c0a7d6bb7523.setContent(html_97cfe3405b57fac22f7e3016b81aa9a2);
+            
+        
+
+        circle_marker_ace01937bbc02c6769a0de90928cd868.bindPopup(popup_5b1c927dd23883696898c0a7d6bb7523)
+        ;
+
+        
+    
+    
+            var circle_marker_577e78aff579db6a812b6a75fd5b3b6a = L.circleMarker(
+                [22.9908, 120.222],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.97559124602894, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_51b79658836ca54a280356e3d66e1d91 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_740626ca41a27de4226eb56e346cf76d = $(`<div id="html_740626ca41a27de4226eb56e346cf76d" style="width: 100.0%; height: 100.0%;">臺南<br>O3: 29.95</div>`)[0];
+                popup_51b79658836ca54a280356e3d66e1d91.setContent(html_740626ca41a27de4226eb56e346cf76d);
+            
+        
+
+        circle_marker_577e78aff579db6a812b6a75fd5b3b6a.bindPopup(popup_51b79658836ca54a280356e3d66e1d91)
+        ;
+
+        
+    
+    
+            var circle_marker_b94996e60d64dbcafaaf14c345ad5c28 = L.circleMarker(
+                [25.0604, 121.2017],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.538178765775154, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_d237929e1eddfe04cd2ea4debc94d292 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_efea2a3860a48d97a124fb10b5348cd1 = $(`<div id="html_efea2a3860a48d97a124fb10b5348cd1" style="width: 100.0%; height: 100.0%;">大園<br>O3: 31.08</div>`)[0];
+                popup_d237929e1eddfe04cd2ea4debc94d292.setContent(html_efea2a3860a48d97a124fb10b5348cd1);
+            
+        
+
+        circle_marker_b94996e60d64dbcafaaf14c345ad5c28.bindPopup(popup_d237929e1eddfe04cd2ea4debc94d292)
+        ;
+
+        
+    
+    
+            var circle_marker_cd5f6df20177909e069000fa1126d923 = L.circleMarker(
+                [23.7176, 120.2026],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.207972019886693, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_095e77391291adb9301cfd912a36d378 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1c1ee594e5f7f71eb068ff0660447956 = $(`<div id="html_1c1ee594e5f7f71eb068ff0660447956" style="width: 100.0%; height: 100.0%;">臺西<br>O3: 34.42</div>`)[0];
+                popup_095e77391291adb9301cfd912a36d378.setContent(html_1c1ee594e5f7f71eb068ff0660447956);
+            
+        
+
+        circle_marker_cd5f6df20177909e069000fa1126d923.bindPopup(popup_095e77391291adb9301cfd912a36d378)
+        ;
+
+        
+    
+    
+            var circle_marker_afebdbf1922c501bafce1f939a955cef = L.circleMarker(
+                [24.8636, 121.2161],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.386737293041566, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_175c2cd14adbf12e9f51fc4816028a31 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_400bbbaa603f7439ad3163bf27c305cf = $(`<div id="html_400bbbaa603f7439ad3163bf27c305cf" style="width: 100.0%; height: 100.0%;">龍潭<br>O3: 30.77</div>`)[0];
+                popup_175c2cd14adbf12e9f51fc4816028a31.setContent(html_400bbbaa603f7439ad3163bf27c305cf);
+            
+        
+
+        circle_marker_afebdbf1922c501bafce1f939a955cef.bindPopup(popup_175c2cd14adbf12e9f51fc4816028a31)
+        ;
+
+        
+    
+    
+            var circle_marker_759410dc081915ba4b6934a5420cca91 = L.circleMarker(
+                [25.0632, 121.5132],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.310831970086468, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_23d26d026f26d338d6ef281b315fa5bf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_306a0bd2fb447282d2c0d551e8455590 = $(`<div id="html_306a0bd2fb447282d2c0d551e8455590" style="width: 100.0%; height: 100.0%;">大同<br>O3: 18.62</div>`)[0];
+                popup_23d26d026f26d338d6ef281b315fa5bf.setContent(html_306a0bd2fb447282d2c0d551e8455590);
+            
+        
+
+        circle_marker_759410dc081915ba4b6934a5420cca91.bindPopup(popup_23d26d026f26d338d6ef281b315fa5bf)
+        ;
+
+        
+    
+    
+            var circle_marker_674c424ecb826937c188c225183f54d4 = L.circleMarker(
+                [22.6753, 120.2924],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.837293748547523, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_8e451fe7196c404062188fd44fcac3ce = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e374bfad99c89be2fed5b4918f0a81ff = $(`<div id="html_e374bfad99c89be2fed5b4918f0a81ff" style="width: 100.0%; height: 100.0%;">左營<br>O3: 29.67</div>`)[0];
+                popup_8e451fe7196c404062188fd44fcac3ce.setContent(html_e374bfad99c89be2fed5b4918f0a81ff);
+            
+        
+
+        circle_marker_674c424ecb826937c188c225183f54d4.bindPopup(popup_8e451fe7196c404062188fd44fcac3ce)
+        ;
+
+        
+    
+    
+            var circle_marker_1d304a8656e0f74ce4de16fe22f4fa57 = L.circleMarker(
+                [23.115, 120.2972],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.893557179308743, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_ea9559d6d7c456b88f226145cd5ea772 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_961ebd993f1d27c2b2b90feeb6343f36 = $(`<div id="html_961ebd993f1d27c2b2b90feeb6343f36" style="width: 100.0%; height: 100.0%;">善化<br>O3: 27.79</div>`)[0];
+                popup_ea9559d6d7c456b88f226145cd5ea772.setContent(html_961ebd993f1d27c2b2b90feeb6343f36);
+            
+        
+
+        circle_marker_1d304a8656e0f74ce4de16fe22f4fa57.bindPopup(popup_ea9559d6d7c456b88f226145cd5ea772)
+        ;
+
+        
+    
+    
+            var circle_marker_c61e0161aea6d5226e8e4d15649a931f = L.circleMarker(
+                [25.0204, 121.5286],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.415370820317023, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_d60f97ff18b781a578fd3c9361044f8d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5d3bdfa5a2f1b3db44e10bf9265dfaed = $(`<div id="html_5d3bdfa5a2f1b3db44e10bf9265dfaed" style="width: 100.0%; height: 100.0%;">古亭<br>O3: 28.83</div>`)[0];
+                popup_d60f97ff18b781a578fd3c9361044f8d.setContent(html_5d3bdfa5a2f1b3db44e10bf9265dfaed);
+            
+        
+
+        circle_marker_c61e0161aea6d5226e8e4d15649a931f.bindPopup(popup_d60f97ff18b781a578fd3c9361044f8d)
+        ;
+
+        
+    
+    
+            var circle_marker_776400e30921120658c605520e12d8b8 = L.circleMarker(
+                [25.0464, 121.508],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.043390737723993, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_64a15b1bcc3f63ed715a6f342bd74cbb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b0f71685490a148a7b373cc5b09585e0 = $(`<div id="html_b0f71685490a148a7b373cc5b09585e0" style="width: 100.0%; height: 100.0%;">萬華<br>O3: 26.09</div>`)[0];
+                popup_64a15b1bcc3f63ed715a6f342bd74cbb.setContent(html_b0f71685490a148a7b373cc5b09585e0);
+            
+        
+
+        circle_marker_776400e30921120658c605520e12d8b8.bindPopup(popup_64a15b1bcc3f63ed715a6f342bd74cbb)
+        ;
+
+        
+    
+    
+            var circle_marker_edf0f793040be4548853dc2aeb69411c = L.circleMarker(
+                [23.4655, 120.2478],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.465148871830657, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_f33881bd26eea9a56378d48bd031206b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b6ba2a0f55387d4c3fbf606f71bb3aed = $(`<div id="html_b6ba2a0f55387d4c3fbf606f71bb3aed" style="width: 100.0%; height: 100.0%;">朴子<br>O3: 30.93</div>`)[0];
+                popup_f33881bd26eea9a56378d48bd031206b.setContent(html_b6ba2a0f55387d4c3fbf606f71bb3aed);
+            
+        
+
+        circle_marker_edf0f793040be4548853dc2aeb69411c.bindPopup(popup_f33881bd26eea9a56378d48bd031206b)
+        ;
+
+        
+    
+    
+            var circle_marker_55b733536ff1a634fa117bb4e67e27a4 = L.circleMarker(
+                [22.8837, 120.5303],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.48824555284269, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_c62424149a596cbf265e3a874c04396b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f0a391abd6be7a6e7c53ef0ffe204901 = $(`<div id="html_f0a391abd6be7a6e7c53ef0ffe204901" style="width: 100.0%; height: 100.0%;">美濃<br>O3: 28.98</div>`)[0];
+                popup_c62424149a596cbf265e3a874c04396b.setContent(html_f0a391abd6be7a6e7c53ef0ffe204901);
+            
+        
+
+        circle_marker_55b733536ff1a634fa117bb4e67e27a4.bindPopup(popup_c62424149a596cbf265e3a874c04396b)
+        ;
+
+        
+    
+    
+            var circle_marker_a735c25044c6154de96352bb717d39bc = L.circleMarker(
+                [24.9772, 121.5372],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.735646321652354, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_1032f6088a3ae9d2b644e7c249c58a25 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4409d5fa925093ddf645ffa0ad718019 = $(`<div id="html_4409d5fa925093ddf645ffa0ad718019" style="width: 100.0%; height: 100.0%;">新店<br>O3: 29.47</div>`)[0];
+                popup_1032f6088a3ae9d2b644e7c249c58a25.setContent(html_4409d5fa925093ddf645ffa0ad718019);
+            
+        
+
+        circle_marker_a735c25044c6154de96352bb717d39bc.bindPopup(popup_1032f6088a3ae9d2b644e7c249c58a25)
+        ;
+
+        
+    
+    
+            var circle_marker_5de422ef2ebd4870d346aee766d71c9f = L.circleMarker(
+                [24.2253, 120.5667],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.074491584852733, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_9ab493b6b1c523052f078bed39215682 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_26282c512d8a6fb1f51c95dd7e995e98 = $(`<div id="html_26282c512d8a6fb1f51c95dd7e995e98" style="width: 100.0%; height: 100.0%;">沙鹿<br>O3: 30.15</div>`)[0];
+                popup_9ab493b6b1c523052f078bed39215682.setContent(html_26282c512d8a6fb1f51c95dd7e995e98);
+            
+        
+
+        circle_marker_5de422ef2ebd4870d346aee766d71c9f.bindPopup(popup_9ab493b6b1c523052f078bed39215682)
+        ;
+
+        
+    
+    
+            var circle_marker_fb1a079999d64e027261cd074a2a24e0 = L.circleMarker(
+                [24.6324, 121.7923],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.68836425954379, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_e3bfcc974e4fbfc0a78ede7b8c5780dd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ca689d0a5ab0666de9ad613d570451e5 = $(`<div id="html_ca689d0a5ab0666de9ad613d570451e5" style="width: 100.0%; height: 100.0%;">冬山<br>O3: 27.38</div>`)[0];
+                popup_e3bfcc974e4fbfc0a78ede7b8c5780dd.setContent(html_ca689d0a5ab0666de9ad613d570451e5);
+            
+        
+
+        circle_marker_fb1a079999d64e027261cd074a2a24e0.bindPopup(popup_e3bfcc974e4fbfc0a78ede7b8c5780dd)
+        ;
+
+        
+    
+    
+            var circle_marker_14180a34efe0c798e787aaa244daeaae = L.circleMarker(
+                [24.687, 120.8981],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.933655739603843, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_894722edefe4d0162e811085f5530ed7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d29dc859d71c1c80cdbf7c62e9f44705 = $(`<div id="html_d29dc859d71c1c80cdbf7c62e9f44705" style="width: 100.0%; height: 100.0%;">頭份<br>O3: 29.87</div>`)[0];
+                popup_894722edefe4d0162e811085f5530ed7.setContent(html_d29dc859d71c1c80cdbf7c62e9f44705);
+            
+        
+
+        circle_marker_14180a34efe0c798e787aaa244daeaae.bindPopup(popup_894722edefe4d0162e811085f5530ed7)
+        ;
+
+        
+    
+    
+            var circle_marker_58ca8aa912c48bf484c875f0ccd8fc0c = L.circleMarker(
+                [22.7575, 120.3058],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.36919191919192, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_adb9f0660533e2e69473f0e0f20baab2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ed83f46eac355d575a661a7b4b7e611b = $(`<div id="html_ed83f46eac355d575a661a7b4b7e611b" style="width: 100.0%; height: 100.0%;">橋頭<br>O3: 26.74</div>`)[0];
+                popup_adb9f0660533e2e69473f0e0f20baab2.setContent(html_ed83f46eac355d575a661a7b4b7e611b);
+            
+        
+
+        circle_marker_58ca8aa912c48bf484c875f0ccd8fc0c.bindPopup(popup_adb9f0660533e2e69473f0e0f20baab2)
+        ;
+
+        
+    
+    
+            var circle_marker_0a6e039dd90e13456f684dceced52b39 = L.circleMarker(
+                [23.9689, 120.9696],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.00536046511628, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_75de40233146e5597033e3381eef93a2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2f139642d3164bb6ca4f0ff5f0def153 = $(`<div id="html_2f139642d3164bb6ca4f0ff5f0def153" style="width: 100.0%; height: 100.0%;">埔里<br>O3: 26.01</div>`)[0];
+                popup_75de40233146e5597033e3381eef93a2.setContent(html_2f139642d3164bb6ca4f0ff5f0def153);
+            
+        
+
+        circle_marker_0a6e039dd90e13456f684dceced52b39.bindPopup(popup_75de40233146e5597033e3381eef93a2)
+        ;
+
+        
+    
+    
+            var circle_marker_4d5103eae3ef73137ffae13675a09fb9 = L.circleMarker(
+                [24.1517, 120.6419],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.961783439490446, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_a262c7b02e68c08a5aae32f80c6b56db = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e11685b0942f8ffd8998af1f13310eda = $(`<div id="html_e11685b0942f8ffd8998af1f13310eda" style="width: 100.0%; height: 100.0%;">忠明<br>O3: 27.92</div>`)[0];
+                popup_a262c7b02e68c08a5aae32f80c6b56db.setContent(html_e11685b0942f8ffd8998af1f13310eda);
+            
+        
+
+        circle_marker_4d5103eae3ef73137ffae13675a09fb9.bindPopup(popup_a262c7b02e68c08a5aae32f80c6b56db)
+        ;
+
+        
+    
+    
+            var circle_marker_a9c95ca03424cf7f985c0eecb7c9b812 = L.circleMarker(
+                [22.4795, 120.4116],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.609843895619758, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_f7187c74272c9d116d5dffba4e69bcdd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3040793a4f82f591e0ed175103c4e2a0 = $(`<div id="html_3040793a4f82f591e0ed175103c4e2a0" style="width: 100.0%; height: 100.0%;">林園<br>O3: 29.22</div>`)[0];
+                popup_f7187c74272c9d116d5dffba4e69bcdd.setContent(html_3040793a4f82f591e0ed175103c4e2a0);
+            
+        
+
+        circle_marker_a9c95ca03424cf7f985c0eecb7c9b812.bindPopup(popup_f7187c74272c9d116d5dffba4e69bcdd)
+        ;
+
+        
+    
+    
+            var circle_marker_dea7ffda993a8883038b30ba2331cf8e = L.circleMarker(
+                [22.633, 120.288],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.032551837888782, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_804c868c9aaa021e4d27032ee699a192 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_40800e24a21408513ea60e790ad05edb = $(`<div id="html_40800e24a21408513ea60e790ad05edb" style="width: 100.0%; height: 100.0%;">前金<br>O3: 30.07</div>`)[0];
+                popup_804c868c9aaa021e4d27032ee699a192.setContent(html_40800e24a21408513ea60e790ad05edb);
+            
+        
+
+        circle_marker_dea7ffda993a8883038b30ba2331cf8e.bindPopup(popup_804c868c9aaa021e4d27032ee699a192)
+        ;
+
+        
+    
+    
+            var circle_marker_cc843079244eb5b006ffd7e2e79a7181 = L.circleMarker(
+                [23.7575, 120.3489],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.527454735376043, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_a71fd0a93111fcfce0e6b4dc057f40b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d67a8e90d1493eaee9d6c07eab440144 = $(`<div id="html_d67a8e90d1493eaee9d6c07eab440144" style="width: 100.0%; height: 100.0%;">崙背<br>O3: 29.05</div>`)[0];
+                popup_a71fd0a93111fcfce0e6b4dc057f40b3.setContent(html_d67a8e90d1493eaee9d6c07eab440144);
+            
+        
+
+        circle_marker_cc843079244eb5b006ffd7e2e79a7181.bindPopup(popup_a71fd0a93111fcfce0e6b4dc057f40b3)
+        ;
+
+        
+    
+    
+            var circle_marker_46ca4fa36e5111c0ba4c66a0f6795306 = L.circleMarker(
+                [25.0726, 121.4933],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.371758828996281, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_c658793d3ac8724fe185869664104539 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ed5b56c29cf6bd8a5fc475373b28ce42 = $(`<div id="html_ed5b56c29cf6bd8a5fc475373b28ce42" style="width: 100.0%; height: 100.0%;">三重<br>O3: 14.74</div>`)[0];
+                popup_c658793d3ac8724fe185869664104539.setContent(html_ed5b56c29cf6bd8a5fc475373b28ce42);
+            
+        
+
+        circle_marker_46ca4fa36e5111c0ba4c66a0f6795306.bindPopup(popup_c658793d3ac8724fe185869664104539)
+        ;
+
+        
+    
+    
+            var circle_marker_837ddf6bbc188b605c4daaf6b34467f2 = L.circleMarker(
+                [25.05, 121.5781],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.97673611111111, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_81dfb9cbaad1ebe3a9396ea9aaa3737a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e79df92d95b8d513e6cb273195beb5c2 = $(`<div id="html_e79df92d95b8d513e6cb273195beb5c2" style="width: 100.0%; height: 100.0%;">松山<br>O3: 25.95</div>`)[0];
+                popup_81dfb9cbaad1ebe3a9396ea9aaa3737a.setContent(html_e79df92d95b8d513e6cb273195beb5c2);
+            
+        
+
+        circle_marker_837ddf6bbc188b605c4daaf6b34467f2.bindPopup(popup_81dfb9cbaad1ebe3a9396ea9aaa3737a)
+        ;
+
+        
+    
+    
+            var circle_marker_88e921a11406b21e19c9168dc6f1cef3 = L.circleMarker(
+                [25.1647, 121.4489],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.365807839944168, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_c7c4e21957fcd41a6dff78f0b9c35b01 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b930b860264012cbde8e84d54eca1f97 = $(`<div id="html_b930b860264012cbde8e84d54eca1f97" style="width: 100.0%; height: 100.0%;">淡水<br>O3: 30.73</div>`)[0];
+                popup_c7c4e21957fcd41a6dff78f0b9c35b01.setContent(html_b930b860264012cbde8e84d54eca1f97);
+            
+        
+
+        circle_marker_88e921a11406b21e19c9168dc6f1cef3.bindPopup(popup_c7c4e21957fcd41a6dff78f0b9c35b01)
+        ;
+
+        
+    
+    
+            var circle_marker_357a311b1bab3211de44a84380382122 = L.circleMarker(
+                [23.7119, 120.5446],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.31697082413112, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_4f87dbd60a8909950615799f0c61298d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3bf9c5cb55f04c6ef1dd0bbfce034561 = $(`<div id="html_3bf9c5cb55f04c6ef1dd0bbfce034561" style="width: 100.0%; height: 100.0%;">斗六<br>O3: 28.63</div>`)[0];
+                popup_4f87dbd60a8909950615799f0c61298d.setContent(html_3bf9c5cb55f04c6ef1dd0bbfce034561);
+            
+        
+
+        circle_marker_357a311b1bab3211de44a84380382122.bindPopup(popup_4f87dbd60a8909950615799f0c61298d)
+        ;
+
+        
+    
+    
+            var circle_marker_13ddfd8fbea44b4776147b5d016894ce = L.circleMarker(
+                [23.0451, 121.1618],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.87781395348837, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_162a0e4fcddd5e0f36bf01c0a349140f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3e23466ef23e51b85c2976da8d81d257 = $(`<div id="html_3e23466ef23e51b85c2976da8d81d257" style="width: 100.0%; height: 100.0%;">關山<br>O3: 23.76</div>`)[0];
+                popup_162a0e4fcddd5e0f36bf01c0a349140f.setContent(html_3e23466ef23e51b85c2976da8d81d257);
+            
+        
+
+        circle_marker_13ddfd8fbea44b4776147b5d016894ce.bindPopup(popup_162a0e4fcddd5e0f36bf01c0a349140f)
+        ;
+
+        
+    
+    
+            var circle_marker_45e87201ef2ccfb249912283b3ea16fb = L.circleMarker(
+                [26.1611, 119.9495],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.858009961774584, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_bc888ddf53946c91023aa2fc4f392306 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a070cb9b603745a45c4a1bfe90181f2b = $(`<div id="html_a070cb9b603745a45c4a1bfe90181f2b" style="width: 100.0%; height: 100.0%;">馬祖<br>O3: 41.72</div>`)[0];
+                popup_bc888ddf53946c91023aa2fc4f392306.setContent(html_a070cb9b603745a45c4a1bfe90181f2b);
+            
+        
+
+        circle_marker_45e87201ef2ccfb249912283b3ea16fb.bindPopup(popup_bc888ddf53946c91023aa2fc4f392306)
+        ;
+
+        
+    
+    
+            var circle_marker_9692705e74b84f3f8a0c86e1d8a79ba6 = L.circleMarker(
+                [25.1828, 121.5297],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.72439605110337, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_d32a3cedc232805204502f381858fa4a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bd3b9eb38717b48d58b33314b9e0be9a = $(`<div id="html_bd3b9eb38717b48d58b33314b9e0be9a" style="width: 100.0%; height: 100.0%;">陽明<br>O3: 39.45</div>`)[0];
+                popup_d32a3cedc232805204502f381858fa4a.setContent(html_bd3b9eb38717b48d58b33314b9e0be9a);
+            
+        
+
+        circle_marker_9692705e74b84f3f8a0c86e1d8a79ba6.bindPopup(popup_d32a3cedc232805204502f381858fa4a)
+        ;
+
+        
+    
+    
+            var circle_marker_0181bfd4e14dbf16a4799a43dfd697b4 = L.circleMarker(
+                [24.0993, 120.6778],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.798853635942564, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_0047fc5a6984aa97de769e13b17a8133 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5e77bb3ac99a763b4bb2b1fd06cbaedb = $(`<div id="html_5e77bb3ac99a763b4bb2b1fd06cbaedb" style="width: 100.0%; height: 100.0%;">大里<br>O3: 25.60</div>`)[0];
+                popup_0047fc5a6984aa97de769e13b17a8133.setContent(html_5e77bb3ac99a763b4bb2b1fd06cbaedb);
+            
+        
+
+        circle_marker_0181bfd4e14dbf16a4799a43dfd697b4.bindPopup(popup_0047fc5a6984aa97de769e13b17a8133)
+        ;
+
+        
+    
+    
+            var circle_marker_7dc5bb1dc87954ee173ddeb943852083 = L.circleMarker(
+                [24.9231, 121.2037],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.719627091078067, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_2aaadcd237b316da5c36dbf286267f62 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e10036ba38389b01525feead1a6ed062 = $(`<div id="html_e10036ba38389b01525feead1a6ed062" style="width: 100.0%; height: 100.0%;">平鎮<br>O3: 29.44</div>`)[0];
+                popup_2aaadcd237b316da5c36dbf286267f62.setContent(html_e10036ba38389b01525feead1a6ed062);
+            
+        
+
+        circle_marker_7dc5bb1dc87954ee173ddeb943852083.bindPopup(popup_2aaadcd237b316da5c36dbf286267f62)
+        ;
+
+        
+    
+    
+            var circle_marker_e993c345cab1445d3f601d0a1a5f8446 = L.circleMarker(
+                [23.5692, 119.5633],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.82263921113689, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_e67faa9d7218ac826a33b7aa0e764835 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8ba3b2d17e9cb3f38761ed22bf9988ca = $(`<div id="html_8ba3b2d17e9cb3f38761ed22bf9988ca" style="width: 100.0%; height: 100.0%;">馬公<br>O3: 41.65</div>`)[0];
+                popup_e67faa9d7218ac826a33b7aa0e764835.setContent(html_8ba3b2d17e9cb3f38761ed22bf9988ca);
+            
+        
+
+        circle_marker_e993c345cab1445d3f601d0a1a5f8446.bindPopup(popup_e67faa9d7218ac826a33b7aa0e764835)
+        ;
+
+        
+    
+    
+            var circle_marker_691755e66402b11bc83e555c2433d296 = L.circleMarker(
+                [25.0672, 121.6414],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.096551323734325, "stroke": true, "weight": 3}
+            ).addTo(map_45fc6631b0da5dbca3be242a405e0970);
+        
+    
+        var popup_6d19226c950c68da58bfd59926ecc181 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fc7ece58134a31f4f188a2006b7e9afe = $(`<div id="html_fc7ece58134a31f4f188a2006b7e9afe" style="width: 100.0%; height: 100.0%;">汐止<br>O3: 26.19</div>`)[0];
+                popup_6d19226c950c68da58bfd59926ecc181.setContent(html_fc7ece58134a31f4f188a2006b7e9afe);
+            
+        
+
+        circle_marker_691755e66402b11bc83e555c2433d296.bindPopup(popup_6d19226c950c68da58bfd59926ecc181)
+        ;
+
+        
+    
+</script>
+</html>

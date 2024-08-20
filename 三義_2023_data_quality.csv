@@ -1,0 +1,16 @@
+station,parameter,instrument_invalid,program_invalid,manual_invalid,alarm_invalid,no_rain,missing_value
+三義,AMB_TEMP,12,0,0,0,0,0
+三義,CO,69,18,0,2,0,0
+三義,NO,102,0,4,16,0,0
+三義,NO2,102,0,4,16,0,0
+三義,NOx,102,0,4,16,0,0
+三義,O3,82,0,0,2,0,0
+三義,PM10,72,28,81,2,0,0
+三義,PM2.5,66,4,4,22,0,0
+三義,RAINFALL,64,0,0,0,0,0
+三義,RH,12,4,0,0,0,0
+三義,SO2,115,0,45,19,0,0
+三義,WD_HR,16,0,0,0,0,0
+三義,WIND_DIREC,12,0,0,0,0,0
+三義,WIND_SPEED,12,0,0,0,0,0
+三義,WS_HR,16,0,0,0,0,0
